@@ -1,0 +1,125 @@
+:root {
+  --bg: #09111f;
+  --bg-alt: #111d32;
+  --text: #e8f2ff;
+  --muted: #9cb4d4;
+  --sky-blue: #4cb7ff;
+  --orange: #ff9448;
+  --border: #243557;
+  --shadow: 0 16px 35px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at 15% 10%, #132845 0%, var(--bg) 45%);
+  color: var(--text);
+}
+
+.app-shell {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 3rem 0;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.hero-section,
+.plans-section,
+.footer-cta {
+  background: linear-gradient(145deg, rgba(17, 29, 50, 0.95), rgba(9, 17, 31, 0.92));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.tag {
+  color: var(--sky-blue);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0.25rem 0 0.8rem;
+}
+
+.hero-copy,
+.plans-section > p,
+.footer-cta > p,
+.plan-subtitle,
+li {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 1.4rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+button,
+.hero-actions a {
+  border: none;
+  background: linear-gradient(120deg, var(--sky-blue), #66c7ff);
+  color: #041325;
+  font-weight: 700;
+  padding: 0.78rem 1.25rem;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover,
+.hero-actions a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(76, 183, 255, 0.35);
+}
+
+.plans-grid {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.plan-card {
+  background: linear-gradient(170deg, #101d31, #0a1626);
+  border: 1px solid #253a61;
+  border-radius: 16px;
+  padding: 1.2rem;
+}
+
+.plan-price {
+  font-size: 1.45rem;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.plan-card ul {
+  padding-left: 1rem;
+  min-height: 120px;
+}
+
+.plan-card button,
+.footer-cta button {
+  margin-top: 0.4rem;
+  background: linear-gradient(120deg, var(--orange), #ffb17d);
+}
+
+@media (max-width: 700px) {
+  .hero-section,
+  .plans-section,
+  .footer-cta {
+    padding: 1.3rem;
+  }
+}
