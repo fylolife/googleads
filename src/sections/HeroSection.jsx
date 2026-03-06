@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <header className="hero-section">
+    <header className="hero-section reveal-rise">
       <p className="tag">Fylo Style • Dark Mode • Google Ads Focus</p>
       <h1>Grow Your Business with High-Performance Landing Pages</h1>
       <p className="hero-copy">
