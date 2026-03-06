@@ -31,11 +31,54 @@ body {
 .hero-section,
 .plans-section,
 .footer-cta {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(145deg, rgba(17, 29, 50, 0.95), rgba(9, 17, 31, 0.92));
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2rem;
   box-shadow: var(--shadow);
+}
+
+.hero-section {
+  isolation: isolate;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(6px);
+  opacity: 0.45;
+  z-index: -1;
+  pointer-events: none;
+  animation: floatOrb 7s ease-in-out infinite;
+}
+
+.hero-orb--blue {
+  width: 170px;
+  height: 170px;
+  top: -35px;
+  right: 12%;
+  background: radial-gradient(circle at 35% 30%, #8fd8ff, rgba(76, 183, 255, 0.2) 70%);
+}
+
+.hero-orb--orange {
+  width: 140px;
+  height: 140px;
+  bottom: -36px;
+  left: 52%;
+  background: radial-gradient(circle at 45% 35%, #ffd0a8, rgba(255, 148, 72, 0.16) 70%);
+  animation-delay: -3s;
+}
+
+.hero-title {
+  display: inline-block;
+  background-image: linear-gradient(120deg, #e8f2ff 35%, #9ed9ff 48%, #e8f2ff 60%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerTitle 6s linear infinite;
 }
 
 .tag {
@@ -97,6 +140,15 @@ button:hover,
   border: 1px solid #253a61;
   border-radius: 16px;
   padding: 1.2rem;
+  animation: riseIn 0.7s ease both;
+}
+
+.plan-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.plan-card:nth-child(3) {
+  animation-delay: 0.24s;
 }
 
 .plan-price {
@@ -114,6 +166,44 @@ button:hover,
 .footer-cta button {
   margin-top: 0.4rem;
   background: linear-gradient(120deg, var(--orange), #ffb17d);
+}
+
+@keyframes floatOrb {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-16px) scale(1.05);
+  }
+}
+
+@keyframes shimmerTitle {
+  from {
+    background-position: 200% 50%;
+  }
+  to {
+    background-position: -20% 50%;
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb,
+  .hero-title,
+  .plan-card {
+    animation: none;
+  }
 }
 
 @media (max-width: 700px) {
